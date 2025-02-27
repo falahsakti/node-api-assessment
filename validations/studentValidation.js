@@ -8,6 +8,9 @@ const validateRegister = (payload) => {
   if (!payload.teacher) {
     valid = false;
     messages.push("Missing teacher's data");
+  } else if (!emailHelper.isValidEmail(payload.teacher)) {
+    valid = false;
+    messages.push(`Invalid teacher's email: ${payload.teacher}`);
   }
 
   // validate if students are specified
@@ -17,7 +20,7 @@ const validateRegister = (payload) => {
   } else {
     // Validate student's email
     payload.students.forEach((student) => {
-      if (!emailHelper.validateEmail(student)) {
+      if (!emailHelper.isValidEmail(student)) {
         valid = false;
         messages.push(`Invalid student's email: ${student}`);
       }
@@ -39,7 +42,7 @@ const validateCommonStudents = (teacherEmails) => {
     messages.push("Missing teachers data");
   } else {
     teacherEmails.forEach((email) => {
-      if (!emailHelper.validateEmail(email)) {
+      if (!emailHelper.isValidEmail(email)) {
         valid = false;
         messages.push(`Invalid teacher's email: ${email}`);
       }
@@ -59,6 +62,9 @@ const validateSuspend = (payload) => {
   if (!payload.student) {
     valid = false;
     messages.push("Missing student to suspend");
+  } else if (!emailHelper.isValidEmail(payload.student)) {
+    valid = false;
+    messages.push(`Invalid student's email ${payload.email}`);
   }
 
   return {
@@ -74,6 +80,14 @@ const validateNotification = (payload) => {
   if (!payload.teacher) {
     valid = false;
     messages.push("Missing teacher data");
+  } else if (!emailHelper.isValidEmail(payload.teacher)) {
+    valid = false;
+    messages.push(`Invalid teacher's email: ${payload.teacher}`);
+  }
+
+  if (!payload.notification) {
+    valid = false;
+    messages.push("Missing notification data");
   }
 
   return {

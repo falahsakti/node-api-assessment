@@ -23,7 +23,9 @@ const getCommonStudents = asyncHandler(async (req, res) => {
   if (teachers && !Array.isArray(teachers)) {
     teachers = [teachers];
   }
+
   const result = await studentService.getCommonStudents(teachers);
+
   if (result.success) {
     res.status(200).json(result.data);
   } else {
@@ -37,6 +39,7 @@ const getCommonStudents = asyncHandler(async (req, res) => {
 // @access  Public
 const suspendStudent = asyncHandler(async (req, res) => {
   const result = await studentService.suspendStudent(req.body);
+
   if (result.success) {
     res.status(204).json();
   } else {
@@ -50,6 +53,7 @@ const suspendStudent = asyncHandler(async (req, res) => {
 // @access  Public
 const getStudentsForNotif = asyncHandler(async (req, res) => {
   const result = await studentService.getStudentsForNotif(req.body);
+
   if (result.success) {
     res.status(200).json(result.data);
   } else {

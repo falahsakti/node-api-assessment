@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node .",
     "dev": "nodemon .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "test:dev": "jest --watchAll"
   },
   "author": "falahsakti.adijaya@mitrais.com",
   "license": "ISC",
@@ -17,7 +18,8 @@
     "express-async-handler": "^1.2.0",
     "mysql2": "^3.12.0",
     "sequelize": "^6.37.5",
-    "uuid": "^11.1.0"
+    "uuid": "^11.1.0",
+    "validator.js": "^2.0.4"
   },
   "devDependencies": {
     "jest": "^29.7.0",
