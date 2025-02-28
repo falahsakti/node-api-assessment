@@ -15,18 +15,18 @@ API for system where teachers can perform administrative functions for their stu
 - MySQL database
 
 ## Installation
-Instructions on how to install and set up the project.
+Instructions on how to install and set up the project locally.
 
 ```bash
-git clone https://github.com/yourusername/yourproject.git
-cd yourproject
+git clone https://github.com/falahsakti/node-api-assessment.git
+cd node-api-assessment
 npm install
 ```
 
 Configure environment variables
 - Before configuring environment variables, prepare a new empty MySQL database
-- create new file: .env (or copy and rename from .env.example)
-- specify environment variables. e.g.:
+- Create new file: .env (or copy and rename from .env.example)
+- Specify environment variables for db connection. e.g.:
 ```
 DB_USER=[YOUR_DB_USER]
 DB_PASSWORD=[YOUR_DB_PASSWORD]
@@ -49,14 +49,15 @@ npm run dbmigration
 ``` bash
 npm start
 ```
+By default, the API will run on port 5000
 
 # API Endpoints
 List of API Endpoints
 
 ## POST /api/Register
-Description: Register one or more students to a specified teacher.
-Headers: `Content-Type: application/json`
-Request Body:
+- Description: Register one or more students to a specified teacher.
+- Headers: `Content-Type: application/json`
+- Request Body:
 ``` json
 {
   "teacher": "teacherken@gmail.com"
@@ -68,16 +69,16 @@ Request Body:
 }
 ```
 
-Response:
+- Response:
 `HTTP 204 (No content)`
 
 ## GET /api/commonStudent
-Description: Retrieve a list of students common to a given list of teachers (i.e. retrieve students who are registered to ALL of the given teachers.
+- Description: Retrieve a list of students common to a given list of teachers (i.e. retrieve students who are registered to ALL of the given teachers.
 
-Request examples:
+- Request examples:
 - `GET /api/commonstudents?teacher=teacherken%40gmail.com`
 - `GET /api/commonstudents?teacher=teacherken%40gmail.com&teacher=teacherjoe%40gmail.com`
-Response:
+- Response:
 ```
 {
   "students" :
@@ -89,22 +90,22 @@ Response:
 ```
 
 ## POST /api/suspend
-Description: Suspend a specified student.
-Headers: `Content-Type: application/json`
-Request Body:
+- Description: Suspend a specified student.
+- Headers: `Content-Type: application/json`
+- Request Body:
 ``` json
 {
   "student" : "studentmary@gmail.com"
 }
 ```
 
-Response:
+- Response:
 `HTTP 204 (No content)`
 
 ## POST /api/retrievefornotifications
-Description: Retrieve a list of students who are not suspended and can receive a given notification.
-Headers: `Content-Type: application/json`
-Request Body:
+- Description: Retrieve a list of students who are not suspended and can receive a given notification.
+- Headers: `Content-Type: application/json`
+- Request Body:
 ``` json
 {
   "teacher":  "teacherken@gmail.com",
@@ -112,7 +113,7 @@ Request Body:
 }
 ```
 
-Response:
+- Response:
 ``` json
 {
   "recipients":
@@ -132,4 +133,4 @@ Run the tests:
 ```
 npm test
 ```
-View test results: The test results will be displayed in the terminal. You can also configure a test reporter for more detailed output.
+View test results: The test results will be displayed in the terminal.
