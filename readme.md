@@ -133,3 +133,6 @@ Run the tests:
 npm test
 ```
 View test results: The test results will be displayed in the terminal.
+
+Using Postman: Import collection file `postman-collection.json`
+
