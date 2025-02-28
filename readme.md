@@ -34,7 +34,6 @@ DB_DATABASE=[YOUR_DATABASE_NAME]
 DB_HOST=[YOUR_DB_HOST]
 DB_DIALECT=mysql
 DB_PORT=3306
-DB_SSL=false
 PORT=5000
 ```
 Run db migration (optional)
