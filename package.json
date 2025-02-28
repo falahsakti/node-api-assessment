@@ -6,8 +6,9 @@
   "scripts": {
     "start": "node .",
     "dev": "nodemon .",
-    "test": "jest",
-    "test:dev": "jest --watchAll"
+    "test": "jest --coverage",
+    "test:dev": "jest --watchAll",
+    "dbmigration": "npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
   "author": "falahsakti.adijaya@mitrais.com",
   "license": "ISC",

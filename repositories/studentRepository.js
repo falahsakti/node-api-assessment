@@ -13,7 +13,7 @@ const registerStudentsToTeacher = async (students, teacher) => {
       });
 
       // Register student to teacher
-      if (student) await student.addTeacher(teacher);
+      await student.addTeacher(teacher);
     }
   });
 };
@@ -62,8 +62,6 @@ const getActiveStudentsByEmails = async (emails) => {
     },
   });
 
-  console.log(activeStudents);
-
   const activeStudentEmails = [...activeStudents.map((s1) => s1.email)];
   return activeStudentEmails;
 };
@@ -76,6 +74,7 @@ const getStudentByEmail = async (email) => {
 const suspendStudent = async (student) => {
   student.suspended = true;
   await student.save();
+  return student;
 };
 
 module.exports = {
